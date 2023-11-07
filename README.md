@@ -15,6 +15,7 @@ visual-studio-code-bin
 - is bsdmainutils or smth like that mandatory ?
 
 ## polybar 
+- add MODE module (resize)
 - config bt for fuck's sake
 - ecpgpp logo somewhere to put
 - ram module with bar like hp
