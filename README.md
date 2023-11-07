@@ -8,6 +8,7 @@ visual-studio-code-bin
 
 # TODO: 
 ## misc
+- script to auto get from aur with aur-package-list.info
 - half-life / black mesa / portal / cyberpunk theme ref (color codes, logos, fonticon..)
 - cowsay and pixel art nonsense
 
