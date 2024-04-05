@@ -21,5 +21,4 @@ echo -e "${HL}---------------- YOLO UPDATE! ----------------${ENDT}" &&
 	yay && 
 	echo -e "${HL}That wasn't safe AT ALL my lord, but this was fun.${ENDT}"
 
-#!/bin/bash
 
