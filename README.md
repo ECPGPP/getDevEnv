@@ -1,4 +1,6 @@
-# getDevEnv: 
+# getDevEnv: THIS FILE IS NOT UPDATED I AM A BAD MAINTAINER WITH NO DISCPLINE
+(unless you are an employer/client, cause in that case I'm such an engineeer of course)
+
 ## fun da mental setup cheese
 - launch packages-env-init.sh on your local Manjaro
 - get some nice Aur packages 
