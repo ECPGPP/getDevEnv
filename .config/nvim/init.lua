@@ -254,6 +254,7 @@ require('lazy').setup({
   },
   { 'SirVer/ultisnips' },
   { 'honza/vim-snippets' },
+  { 'pocco81/auto-save.nvim' },
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
