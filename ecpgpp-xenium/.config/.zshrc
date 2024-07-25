@@ -30,22 +30,6 @@ fi
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# zoxide
-eval "$(zoxide init --cmd cd zsh)"
-
-# fzf 
-# eval "$(fzf --zsh)" -> this trigger an error
-
-#---#---/CUSTOM ALIASES/---#---#
-
-alias yolo="$HOME/git/getDevEnv/scripts/yoloUpdateV2.sh"
-alias meteo='curl wttr.in/\?format="%l:+%t+%c+%S+%m+%s\n"'
-# sounds #
-alias wow="paplay Music/sounds/soundeffect_wow_fairy_tales.mp3"
-alias quack="paplay Music/sounds/soundeffect_duck_quacks_and_disappears.mp3"
-# symfony alias #
-alias sy="php bin/console"
-
 # pnpm
 export PNPM_HOME="/home/skeggang/.local/share/pnpm"
 case ":$PATH:" in
@@ -53,3 +37,48 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# zoxide
+eval "$(zoxide init --cmd cd zsh)"
+
+# hell of an alias
+alias astcla="cd"
+
+# fzf 
+# eval "$(fzf --zsh)" -> this trigger an error
+
+# tailwind memory allocation
+NODE_OPTIONS="--max-old-space-size=8192"
+
+#---#---/CUSTOM ALIASES/---#---#
+
+alias ls="exa"
+alias yolo="$HOME/git/ecpgpp/getDevEnv/scripts/yoloUpdateV2.sh"
+alias meteo='curl wttr.in/\?format="%l:+%t+%c+%S+%m+%s\n"'
+alias pomodoro="$HOME/git/bash-hazard/timer.sh -m 40 && ./git/bash-hazard/timer.sh -m 10"
+# sounds #
+alias wow="paplay $HOME/Music/sounds/soundeffect_wow_fairy_tales.mp3"
+alias quack="paplay $HOME/Music/sounds/soundeffect_duck_quacks_and_disappears.mp3"
+
+# symfony alias #
+alias sy="php bin/console"
+
+# kb layout
+alias frus="$HOME/git/ecpgpp/getDevEnv/scripts/kb-layout-us-ansi.sh"
+
+
+#################### OTHER #######################
+# MyAtlas config requirements
+# alias cd-lime='cd /var/www/myatlas'
+alias cd-lime='cd ~/git/reverse814-business/myatlas'
+# alias lime='php /var/www/myatlas/lime/lime.php'
+alias lime='php ~/git/reverse814-business/myatlas/lime/lime.php'
+
+################### ANDROID DEV ##################
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export JAVA_HOME=/user/lib/jvm/java-11-openjdk
+export PATH=$JAVA_HOME/bin:$PATH

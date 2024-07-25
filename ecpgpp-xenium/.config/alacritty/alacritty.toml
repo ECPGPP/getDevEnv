@@ -1,6 +1,5 @@
 # custom_cursor_colors = true
 live_config_reload = true
-# window_opacity = 0.7
 
 [[colors.indexed_colors]]
 color = "0xcb4b16"
@@ -28,13 +27,13 @@ index = 21
 
 [colors.bright]
 black = "0x657b83"
-blue = "0x268bd2"
+blue = "0x00bfff"
 cyan = "0x15f4ee"
 green = "0x00ff7f"
 magenta = "0xfe4eda"
-red = "0xdd1001"
+red = "0xff002a"
 white = "0xfdf6e3"
-yellow = "0xb58900"
+yellow = "0xf9e404"
 
 [colors.cursor]
 cursor = "0xfb7e14"
@@ -44,15 +43,19 @@ text = "0x002b36"
 black = "0x002b36"
 blue = "0x268bd2"
 cyan = "0x2aa198"
-green = "0x859900"
-magenta = "0x6c71c4"
-red = "0xdc322f"
-white = "0xfef9e5"
-yellow = "0xc4b64e"
+green = "0x77bf00"
+magenta = "0xb300b3"
+red = "0xcc0022"
+white = "0xe2dcc9"
+yellow = "0xe4ca4c"
 
 [colors.primary]
-background = "0x2a2f23"
-foreground = "0xfef9e5"
+#background = "0x201127"
+#foreground = "0xfef9e5"
+#background = "0x2a2f23"
+#background= "0x191b2a"
+background= "0x090a14"
+foreground = "0xffeb99"
 
 [cursor]
 blink_interval = 100
@@ -65,22 +68,22 @@ shape = "Underline"
 TERM = "xterm-256color"
 
 [font]
-size = 9
+size = 10
 
 [font.bold]
-family = "Noto Sans Mono"
+family = "Hack"
 style = "Bold"
 
 [font.bold_italic]
-family = "Noto Sans Mono"
+family = "Hack"
 style = "Bold Italic"
 
 [font.italic]
-family = "Noto Sans Mono"
+family = "Hack"
 style = "Italic"
 
 [font.normal]
-family = "Noto Sans Mono"
+family = "Hack"
 style = "Regular"
 
 [font.offset]
@@ -174,11 +177,13 @@ history = 5000
 
 [window]
 title = "Alacritty"
+opacity = 0.99
 
 [window.class]
 general = "Alacritty"
 instance = "Alacritty"
 
 [window.padding]
-x = 6
-y = 6
+x = 2 
+y = 2
+
