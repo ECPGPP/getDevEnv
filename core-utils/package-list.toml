@@ -1,0 +1,15 @@
+# Package list
+
+# package repository
+
+[AUR]
+dev = ["google-chrome","visual-studio-code-bin"]	
+[pacman]
+social = ["discord"]
+dev = ["alacritty","nvim","docker","jq","glow"]
+productivity = ["task"] 
+monitoring = ["htop"]
+network = ["nmap","curl","httpie"]
+design = ["gimp"]
+environment = ["neofetch","i3","polybar"]
+
