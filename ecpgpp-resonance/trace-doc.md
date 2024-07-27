@@ -1,21 +1,18 @@
 # 
 ✓ ✗
 
-# various packages and tips
-pactree
-
 # Installation of Manjaro Gnome #
     + install 24.0.3 -> 6.9.9-1-MANJARO
     + install `neovim`
 
 # Problems to solve
 
-## no click on tap on touchpad
+## No click on tap on touchpad
 [solved ✓]
-### procedure
-1. install 'xorg-xinput'
+### Procedure
+1. Install 'xorg-xinput'
 
-2. create config at `etc/X11/xorg.conf.d/40-libinput.conf`
+2. Create config at `etc/X11/xorg.conf.d/40-libinput.conf`
 config :
 ```txt
 Section "InputClass"
@@ -27,27 +24,27 @@ Section "InputClass"
 EndSection
 ```
 
-### readings
+### Readings
 > "You may want to install xorg-xinput to be able to change settings at runtime."  
 [libinput](https://wiki.archlinux.org/title/Libinput)
 
 
-## deactivate the annoying motherboard beep
+## Deactivate the annoying motherboard beep
 [solved ✓]
 
-### procedure
+### Procedure
 
-1. create config at `/etc/modprobe.d/blacklist.conf`
+1. Create config at `/etc/modprobe.d/blacklist.conf`
 config:
 ```txt
 blacklist pcspkr
 ```
 
-### readings
+### Readings
 [man modprobe]https://man.archlinux.org/man/modprobe.8.en)
 [modprobe](https://wiki.archlinux.org/title/Kernel_module#Manually_at_load_time_using_modprobe)
 
-## no sound
+## No sound
 [solved ✓]
 ### Procedure
 1. check if pulseaudio is installed
@@ -102,7 +99,12 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 alsamixer
 ```
 
-### readings
+9. Permanently set speaker on unmute at startup in i3 config
+```txt
+exec --no-startup-id amixer sset Master unmute
+```
+
+### Readings
 [pipewire](https://wiki.archlinux.org/title/PipeWire)
 > "PipeWire is a new low-level multimedia framework. It aims to offer capture and playback for both audio and video with minimal latency and support for PulseAudio, JACK, ALSA and GStreamer-based applications."  
 [pavucontrol](https://doc.ubuntu-fr.org/pavucontrol)
@@ -136,15 +138,41 @@ configuration {
 ### Readings
 [rofi theme](https://github.com/davatorium/rofi/blob/next/doc/rofi-theme.5.markdown)
 
-## screen tearing 
+## Control of screen backlight
+### Procedure
+1. Install brightnessctl
+```bash
+sudo pacman brightnessctl
+```
+2. Add binding in i3 config
+```txt
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
+```
 
-## battery alert / change in behavior
 
-## control of screen backlight
+## Screen tearing 
+
+## some redenring are laggy (for instance some website animations)
+
+## Battery alert / change in behavior
+[WIP]
+### PROCEDURE
+1. Get i3-battery-popup project and make it executable
+```bash
+wget https://raw.githubusercontent.com/rjekker/i3-battery-popup/master/i3-battery-popup
+chmod +x i3-battery-popup
+```
+
+## display sound volume status on change
+
+## No touchPD gesture
+
+## fix GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name is not activatable when using notify send
 
 # Nice to have
 
-## sound on session login / boot
+## Sound on session login / boot
 [TESTING]
 ### procedure
 1. Add an entry to i3 config to wait a bit after startup and play sound
@@ -160,10 +188,15 @@ exec --no-startup-id sleep 2 && paplay /usr/share/sounds/startup.wav
 [pacman-contrib gitlab](https://gitlab.archlinux.org/pacman/pacman-contrib)
 
 ## theme i3
-[]
+[WIP]
 ### procedure
 1. Add a wallpaper in i3 config at `~/.config/i3/config`
 ```txt
 exec_always feh --bg-fill /path/to/wallpaper
 ```
 2. Custom colors for windows tiles
+
+## use picon to pimp rofi
+
+### Nice Packages ###
+picom feh brightnessctl pavucontrol tree
