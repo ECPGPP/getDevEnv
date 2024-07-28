@@ -1,8 +1,6 @@
-# 
-✓ ✗
-
 # Installation of Manjaro Gnome #
-    + install 24.0.3 -> 6.9.9-1-MANJARO
++ install 24.0.3 -> 6.9.9-1-MANJARO
+> This document intend to compile various informations about setting up a Manjaro i3 (from a Manjaro-Gnome env) on a Thinkpad T14Gen5
 
 # Problems to solve
 
@@ -97,7 +95,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 ```bash
 alsamixer
 ```
-> at every reboot my Speaker goes mute. IDK why.
+> At every reboot my Speaker goes mute. I write a script to ensure the toggle. (`unmute` alone doesn't work)
 
 9. Unmute Speaker at startup with script in i3
 ```txt
@@ -105,10 +103,9 @@ exec --no-startup-id ~/scripts/unmute-speaker.sh
 ```
 __~/scripts/unmute-speaker.sh__
 ```bash
+amixer set Master mute
 amixer set Master unmute
 ```
-
-
 
 ### Readings
 [pipewire](https://wiki.archlinux.org/title/PipeWire)
@@ -160,22 +157,49 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 
 ## Screen tearing 
 
-## some redenring are laggy (for instance some website animations)
+## Some redenring are laggy (for instance some website animations)
 
-## Battery alert / change in behavior
-[WIP]
+## KB lafayette layout
+
+## Alert on low battery
+[WIP - NOT WORKING ✗]
 ### PROCEDURE
-1. Get i3-battery-popup project and make it executable
+1. Get `i3-battery-popup` project and make it executable
 ```bash
 wget https://raw.githubusercontent.com/rjekker/i3-battery-popup/master/i3-battery-popup
 chmod +x i3-battery-popup
 ```
 2. Set the script to launch at startup with option in i3 config
 ```txt
-exec --no-startup-id ~/scripts/i3-battery-popup -L 25% -l 20% -s /usr/share/sounds/skeggang/foranik.mp3 -n
+exec --no-startup-id $HOME/scripts/i3-battery-popup -L 25% -l 20% -s /usr/share/sounds/skeggang/foranik.mp3 -n
 ```
 
-## display sound volume status on change
+## Set up Charging Threshold 
+### Procedure
+1. Install `tlp` to reach better battery life
+[tlp](https://linrunner.de/tlp/introduction.html)
+```bashac
+sudo pacman -S tlp
+```
+2. Enable tlp service
+```bash
+systemctl enable tlp.service
+```
+3. Check tlp info
+```bash
+sudo tlp-stat -b
+``
+4. Enable tlp usage and battery threshold in tlp config at `/etc/tlp.conf`
+```txt
+TLP_ENABLE=1
+TLP_WARN_LEVEL=3
+...
+START_CHARGE_THRESH_BAT0=75
+STOP_CHARGE_THRESH_BAT0=80
+```
+
+
+## display sound volume indicator on change
 
 ## No touchPD gesture
 
