@@ -1,0 +1,9 @@
+# Packages repositories
+[AUR]
+web = ["google-chrome"]
+devtools = ["visual-studio-code-bin"]
+[pacman]
+social = ["discord"]
+monitoring = ["htop"]
+utils = ["neofetch", "flameshot",]
+
