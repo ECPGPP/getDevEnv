@@ -3,7 +3,6 @@
 
 # Installation of Manjaro Gnome #
     + install 24.0.3 -> 6.9.9-1-MANJARO
-    + install `neovim`
 
 # Problems to solve
 
@@ -98,11 +97,18 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 ```bash
 alsamixer
 ```
+> at every reboot my Speaker goes mute. IDK why.
 
-9. Permanently set speaker on unmute at startup in i3 config
+9. Unmute Speaker at startup with script in i3
 ```txt
-exec --no-startup-id amixer sset Master unmute
+exec --no-startup-id ~/scripts/unmute-speaker.sh
 ```
+__~/scripts/unmute-speaker.sh__
+```bash
+amixer set Master unmute
+```
+
+
 
 ### Readings
 [pipewire](https://wiki.archlinux.org/title/PipeWire)
@@ -150,6 +156,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 ```
 
+## bluetooth support / headphone setup
 
 ## Screen tearing 
 
@@ -163,12 +170,23 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 wget https://raw.githubusercontent.com/rjekker/i3-battery-popup/master/i3-battery-popup
 chmod +x i3-battery-popup
 ```
+2. Set the script to launch at startup with option in i3 config
+```txt
+exec --no-startup-id ~/scripts/i3-battery-popup -L 25% -l 20% -s /usr/share/sounds/skeggang/foranik.mp3 -n
+```
 
 ## display sound volume status on change
 
 ## No touchPD gesture
 
 ## fix GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name is not activatable when using notify send
+[solved ✓]
+### Procedure
+1. Install a notification deamon
+> I go for dunst
+```bash
+sudo pacman -S dunst
+```
 
 # Nice to have
 
@@ -196,7 +214,9 @@ exec_always feh --bg-fill /path/to/wallpaper
 ```
 2. Custom colors for windows tiles
 
-## use picon to pimp rofi
+## use picom to pimp rofi
+
+## customize desktop notification appearance
 
 ### Nice Packages ###
-picom feh brightnessctl pavucontrol tree
+picom feh brightnessctl pavucontrol tree dunst
